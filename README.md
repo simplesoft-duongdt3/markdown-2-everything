@@ -1,5 +1,7 @@
 # MD2Confluence - Markdown to Confluence Converter
 
+[**Open Live Tool**](https://simplesoft-duongdt3.github.io/markdown-2-everything/)
+
 A modern, browser-based tool to convert Markdown text into Confluence-compatible HTML. Designed to preserve formatting, especially for tables, info panels, and code blocks, making copy-pasting into Atlassian Confluence seamless.
 
 ## Features
