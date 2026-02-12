@@ -1,0 +1,352 @@
+:root {
+  --bg-color: #f8fafc;
+  --surface-color: #ffffff;
+  --border-color: #e2e8f0;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --primary-color: #4f46e5;
+  --primary-hover: #4338ca;
+
+  /* Confluence specific colors */
+  --c-heading: #172b4d;
+  --c-text: #172b4d;
+  --c-link: #0052cc;
+  --c-table-header-bg: #f4f5f7;
+  --c-table-border: #dfe1e6;
+  --c-code-bg: #f4f5f7;
+  --c-info-bg: #e3fcef;
+  --c-info-border: #006644;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header */
+.app-header {
+  background-color: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 1.5rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-primary);
+}
+
+.actions {
+    display: flex;
+    gap: 0.75rem;
+}
+.logo h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  box-shadow:
+    0 4px 6px -1px rgba(79, 70, 229, 0.1),
+    0 2px 4px -1px rgba(79, 70, 229, 0.06);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background-color: #f1f5f9;
+}
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-icon:hover {
+    background-color: #e2e8f0;
+    color: var(--text-primary);
+}
+
+/* Main Container */
+.main-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Prevent flex items from overflowing */
+}
+
+.editor-pane {
+  border-right: 1px solid var(--border-color);
+  background-color: #fafafa;
+}
+
+.preview-pane {
+  background-color: white;
+}
+
+.pane-header {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pane-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.pane-header h2 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Editor */
+#markdown-input {
+  flex: 1;
+  width: 100%;
+  padding: 1.5rem;
+  border: none;
+  resize: none;
+  outline: none;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  background-color: transparent;
+  color: var(--text-primary);
+}
+
+/* Preview (Confluence Styles) */
+#preview-output {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  font-size: 16px; /* Confluence default */
+  line-height: 1.56;
+}
+
+.confluence-content {
+  color: var(--c-text);
+}
+
+.confluence-content h1,
+.confluence-content h2,
+.confluence-content h3,
+.confluence-content h4,
+.confluence-content h5,
+.confluence-content h6 {
+  color: var(--c-heading);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.confluence-content h1 {
+  font-size: 2em;
+}
+.confluence-content h2 {
+  font-size: 1.5em;
+  border-bottom: 1px solid var(--c-table-border);
+  padding-bottom: 0.3em;
+}
+.confluence-content h3 {
+  font-size: 1.25em;
+}
+
+.confluence-content p {
+  margin-bottom: 1em;
+}
+
+.confluence-content a {
+  color: var(--c-link);
+  text-decoration: none;
+}
+
+.confluence-content a:hover {
+  text-decoration: underline;
+}
+
+/* Table Styles - Confluence Style */
+.confluence-content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+  border: 1px solid var(--c-table-border);
+}
+
+.confluence-content th,
+.confluence-content td {
+  padding: 8px 12px;
+  border: 1px solid var(--c-table-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.confluence-content th {
+  background-color: var(--c-table-header-bg);
+  font-weight: 600;
+  color: var(--c-text);
+}
+
+.confluence-content tr:nth-child(even) {
+  /* Optional: Confluence often doesn't force stripes, but legibility helps */
+  background-color: #fafbfc;
+}
+
+.confluence-content tr:hover {
+  background-color: #f4f5f7;
+}
+
+/* Code Blocks */
+.confluence-content pre {
+  background-color: var(--c-code-bg);
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9em;
+}
+
+.confluence-content code {
+  background-color: rgba(9, 30, 66, 0.08); /* Confluence inline code bg */
+  padding: 0.125rem 0.25rem;
+  border-radius: 3px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9em;
+}
+
+.confluence-content pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Blockquotes / Info Panels */
+.confluence-content blockquote {
+  background-color: var(--c-info-bg); /* Info macro style */
+  border-left: 4px solid #0052cc; /* Blue stripe */
+  padding: 1rem;
+  margin: 1rem 0;
+  color: var(--c-text);
+}
+
+.confluence-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.confluence-content ul,
+.confluence-content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1em;
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background-color: #1e293b;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 500;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
