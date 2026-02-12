@@ -35,7 +35,7 @@ If you prefer a containerized environment:
 This project is configured to automatically deploy to GitHub Pages.
 1. Go to your repository **Settings** > **Pages**.
 2. Ensure **Source** is set to `GitHub Actions`.
-3. Push to `main`, and the action will deploy the `src/` folder.
+3. Push to `master`, and the action will deploy the `src/` folder.
 
 ## Tech Stack
 
